@@ -1,0 +1,31 @@
+<div ng-controller="NavigationController as navigation">
+    <nav class="navigation">
+      <div class="logo-image-wrapper inline-block-class">
+        <img src="<%= image_path("logo.png")%>" alt="Logo image" />
+      </div>
+      <div class="navigation-list-wrapper inline-block-class">
+        <div class="navigation-black-dots-left inline-block-class">
+        </div>
+
+        <div class="navigation-empty-area">
+        </div>
+
+        <div class="navigation-black-dots-middle inline-block-class pull-right">
+        </div>
+        <ul class="navigation-list inline-block-class pull-right">
+          <li class="navigation-list-empty-dot"></li>
+          <li class="navigation-list-element"><a ng-class="navigation.currentState == 'home' ? 'navigation-list-archon-active': 'navigation-list-archon'" class="navigation-list-archon" ng-click="navigation.changeState('home')"><span class="navigation-list-text">HOME</span></a></li>
+          <li class="navigation-list-empty-dot"></li>
+          <li class="navigation-list-element"><a ng-class="navigation.currentState == 'portfolio' ? 'navigation-list-archon-active': 'navigation-list-archon'" class="navigation-list-archon" ng-click="navigation.changeState('portfolio')"><span class="navigation-list-text">PORTFOLIO</span></a></li>
+          <li class="navigation-list-empty-dot"></li>
+          <li class="navigation-list-element"><a ng-class="navigation.currentState == 'contact' ? 'navigation-list-archon-active': 'navigation-list-archon'" class="navigation-list-archon" ng-click="navigation.changeState('contact')"><span class="navigation-list-text">CONTACT</span></a></li>
+          <li class="navigation-list-empty-dot"></li>
+          <li class="navigation-list-element"><a ng-class="navigation.currentState == 'about_us' ? 'navigation-list-archon-active': 'navigation-list-archon'" class="navigation-list-archon" ng-click="navigation.changeState('about_us')"><span class="navigation-list-text">ABOUT US</span></a></li>
+          <li class="navigation-list-empty-dot"></li>
+        </ul>
+        <div class="navigation-black-dots-right inline-block-class">
+        </div>
+      </div>
+    </nav>
+
+</div>

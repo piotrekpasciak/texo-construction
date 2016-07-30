@@ -1,0 +1,68 @@
+<div class="page-main-wrapper">
+<div class="page-wrapper">
+
+  <ng-include src="'navigation.html'"></ng-include>
+
+  <header class="header about-us-header">
+    <img src="<%= image_path("portfolio/portfolio_header.jpg")%>" alt="About us header image"/>
+  </header>
+
+  <section class="portfolio-body">
+
+    <div ng-repeat="project in projects">
+      <div class="clearfix">
+          <div class="home-body-tile">
+            <h2 class="home-body-header-text"><img src="<%= image_path("home/tile_thing.png")%>" alt="Tile thing"/> {{ projects[$index].title }}</h2>
+            <div ng-click="showBigImage($index)" ng-mouseenter="hover = false" ng-mouseleave="hover = true" class="project-photo-image-overlay">
+                <a ng-class="{displayhide: hover}" href="/portfolio/{{ current_page*2 - 1 + $index}}/more-photos" class="project-overlay-link"><span ng-class="{displayhide: hover}" class="project-overlay-text">SHOW MORE IMAGES</span></a>
+            </div>
+            <a href="/portfolio/{{ current_page*2 - 1 + $index}}/more-photos"><img class="portfolio-project-main-image" ng-src="{{ main_images[$index] }}" alt="Renovated house main image"/></a>
+            <!--<img class="portfolio-project-main-image" ng-src="test.photo_file_name" alt="Renovated house main image"/> -->
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-4">
+              <h2 class="home-body-header-text"><img src="<%= image_path("home/white_tile_thing.png")%>" alt="Tile thing"/>PROJECT DETAILS</h2>
+              <div class="portfolio-details-wrapper">
+                <div class="portfolio-details-big-text-wrapper inline-block-class">
+                  <p class="portfolio-details-big-text">LOCATION:</p>
+                  <p class="portfolio-details-big-text">OWNER:</p>
+                  <p class="portfolio-details-big-text">PROJECT:</p>
+                </div>
+                <div class="inline-block-class">
+                  <p> {{ projects[$index].location }}</p>
+                  <p> {{ projects[$index].owner }}</p>
+                  <p> {{ projects[$index].company }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <h2 class="home-body-header-text"><img src="<%= image_path("home/white_tile_thing.png")%>" alt="Tile thing"/>PROJECT DESCRIPTION</h2>
+              <p class="home-body-header-small-text"> {{ projects[$index].content }} </p>
+            </div>
+          </div>
+            <div class="clearfix"></div>
+          <div>
+              <div class="portfolio-more-photos-button-wrapper">
+                <a class="portfolio-more-photos-button" href="/portfolio/{{ current_page*2 - 1 + $index}}/more-photos">Show more photos</a>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
+    <div class="portfolio-paging">
+      <ul class="portfolio-paging-list">
+        <li ng-click="goPreviousPage()"><a class="portfolio-paging-arrow-button"><img src="<%= image_path("portfolio/paging_arrow_left.png")%>" alt="Paging arrow left"></a></li>
+        <li ng-repeat="i in getNumber(pages_count) track by $index"><a ng-class="(($index+1)==current_page) ? 'portfolio-paging-button-active': 'portfolio-paging-button'" href="/portfolio/{{$index+1}}"> {{ $index+1 }} </a><li>
+        <li ng-click="goNextPage()"><a class="portfolio-paging-arrow-button portfolio-paging-arrow-button-right"><img src="<%= image_path("portfolio/paging_arrow_right.png")%>" alt="Paging arrow left"></a></li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <ng-include src="'footer.html'"></ng-include>
+
+</div>
+</div>

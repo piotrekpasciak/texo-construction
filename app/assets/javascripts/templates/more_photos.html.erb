@@ -1,0 +1,50 @@
+<div class="page-main-wrapper">
+  <div class="page-wrapper">
+
+    <ng-include src="'navigation.html'"></ng-include>
+    <ng-include src="'header.html'"></ng-include>
+
+    <section class="portfolio-body">
+
+      <div >
+        <div class="more-photos-title">
+          <h2 class="home-body-header-text"><img src="<%= image_path("home/tile_thing.png")%>" alt="Tile thing"/> {{ project.title }}</h2>
+        </div>
+
+        <div class="col-md-12 more-photos-main-div">
+            <div ng-repeat="image in mediumImages">
+              <div class="col-ld-4 col-md-4 col-sm-4 more-photos-images-wrapper">
+
+                <div ng-click="showBigImage($index)" ng-mouseenter="hover = false" ng-mouseleave="hover = true" class="more-photos-image-overlay">
+                  <img ng-class="{displayhide: hover}" class="more-photos-hover-sign" src="<%= image_path("portfolio/more_photos_hover.png") %>" alt="Hover x sign"/>
+                </div>
+
+                <img ng-click="showBigImage($index)" class="more-photos-image" ng-src="{{image}}" alt="Image number {{ $index }}"/>
+              </div>
+            </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+    <ng-include src="'footer.html'"></ng-include>
+
+  </div>
+
+    <div id="big-image-wrapper" class="displayhide">
+          <div class="big-image-overlay"></div>
+          <div class="big-image-panel">
+            <div class="big-image-panel-header">
+              <h5 class="pull-left big-image-header-text">Photography</h5>
+              <h5 class="" ng-click="hideBigImage()" class="pull-right"><a class="pull-right big-image-header-exit">x</a></h5>
+            </div>
+            <div class="big-image-panel-body">
+                <img ng-click="hideBigImage()" class="big-image-image" ng-src="{{largeImages[imageIndex]}}" alt="Image number {{ $index }}"/>
+            </div>
+          </div>
+    </div>
+
+
+</div>

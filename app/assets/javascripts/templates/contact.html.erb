@@ -1,0 +1,71 @@
+<div class="page-main-wrapper">
+<div class="page-wrapper">
+
+  <ng-include src="'navigation.html'"></ng-include>
+
+  <header class="header about-us-header">
+    <img src="<%= image_path("contact/contact_header.jpg")%>" alt="About us header image"/>
+  </header>
+
+  <section class="home-body">
+    <div>
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="contact-form-tile">
+            <h2 class="home-body-header-text"><img src="<%= image_path("home/tile_thing.png")%>" alt="Tile thing"/>ASK A QUESTION</h2>
+            <form novalidate class="simple-form">
+              <div class="row">
+                <div>
+                  <label class="contact-form-label">Your Name</label>
+                  <label class="contact-form-label">Your E-mail</label>
+                  <label class="contact-form-label">Your Phone Number</label>
+                </div>
+                <div>
+                  <input ng-model="contactName" class="contact-form-input" type="text" value="" />
+                  <input ng-model="contactEmail" class="contact-form-input" type="email" value=""/>
+                  <input ng-model="contactPhone" class="contact-form-input" type="text" value="" />
+                </div>
+              </div>
+              <div class="row">
+                <div>
+                  <label class="contact-form-label">Subject</label>
+                </div>
+                <div>
+                  <input ng-model="contactSubject" class="contact-form-big-input" type="text" value="" />
+                </div>
+              </div>
+              <div class="row">
+                <div>
+                  <label class="contact-form-label contact-form-textarea-label">Your Message</label>
+                </div>
+                <div>
+                  <textarea ng-model="contactContent" class="contact-form-textarea" value=""></textarea>
+                </div>
+              </div>
+              <div class="row">
+                  <div>
+                      <input ng-click="sendEmail()" class="contact-form-submit" type="button" value="Send message" />
+                  </div>
+              </div>
+            </form>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="contact-with-us-tile">
+            <h2 class="home-body-header-text"><img src="<%= image_path("home/tile_thing.png")%>" alt="Tile thing"/>CONTACT WITH US</h2>
+            <p class="contact-yellow-text">Paweł Paściak</p>
+            <hr class="contact-horizontal-line">
+            <div class="text-align-right inline-block-class">
+              <p class="contact-white-text">CELL:</p><p class="contact-white-text">FAX:</p>
+            </div>
+            <div class="inline-block-class">
+              <p class="contact-grey-text">123-123-123</p><p class="contact-grey-text">123-123-123</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clearfix"></div>
+  <ng-include src="'footer.html'"></ng-include>
+
+</div>
+</div>
