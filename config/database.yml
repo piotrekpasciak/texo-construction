@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: texo-construction_development
+  username: piotrek
+  password: admin123
+
+test:
+  <<: *default
+  database: texo-construction_test
+  username: piotrek
+  password: admin123
+
+production:
+  <<: *default
+  database: <%= ENV['TEXO-CONSTRUCTION_DATABASE_NAME'] %>
+  username: <%= ENV['TEXO-CONSTRUCTION_DATABASE_USERNAME'] %>
+  password: <%= ENV['TEXO-CONSTRUCTION_DATABASE_PASSWORD'] %>

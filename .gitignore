@@ -13,8 +13,6 @@
 !/log/.keep
 /tmp
 /bower_components
-/config/database.yml
-/config/secrets.yml
 npm-debug.log
 .env
 README.md
