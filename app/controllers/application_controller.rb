@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
     render layout: 'application'
   end
 
-  def test
-    render layout: 'admin'
-  end
-
   protected
 
   def verified_request?
