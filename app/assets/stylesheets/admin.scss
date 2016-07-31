@@ -1,3 +1,39 @@
 // Place all the styles related to the Admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login-form-wrapper{
+  width: 450px;
+  min-width: 450px;
+  height: 410px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.login-form-wrapper{
+  width: 320px;
+  min-width: 320px;
+  height: 410px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.login-panel-heading{
+  font-size: 16px;
+  margin-bottom: 0;
+  font-weight: bolder;
+}
+
+.red-border{
+  border-color: rgba(239, 0, 18, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(239, 0, 0, 0.6);
+  outline: 0 none;
+}
