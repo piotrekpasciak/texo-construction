@@ -2,7 +2,7 @@
 {
     'use strict';
     angular
-        .module('dziura')
+        .module('texo')
         .service('projectService', projectService);
 
     /** @ngInject */
@@ -14,13 +14,13 @@
 
         // Public
         var service = {
-            getCurrentUser: getCurrentUser,
-            isAuthenticated: isAuthenticated,
-            login: login,
-            logout: logout,
-            register: register,
-            isUserAllowed: isUserAllowed,
-            refreshToken: refreshToken
+            // getCurrentUser: getCurrentUser,
+            // isAuthenticated: isAuthenticated,
+            // login: login,
+            // logout: logout,
+            // register: register,
+            // isUserAllowed: isUserAllowed,
+            // refreshToken: refreshToken
         };
 
         return service;
