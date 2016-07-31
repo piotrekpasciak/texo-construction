@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :image do
     project nil
-main false
+    main false
   end
-
 end
