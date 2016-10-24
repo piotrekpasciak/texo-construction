@@ -36,6 +36,7 @@
 //= require angular/pages/portfolio/portfolio.controller.js
 //= require angular/pages/portfolio/portfolio.route.js
 
+//= reuqire angular/index.constants.js
 //= require angular/index.module.js
 //= require angular/index.route.js
 //= require angular/index.run.js

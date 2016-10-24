@@ -1,12 +1,18 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html
   layout 'admin'
 
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all
+
+    respond_to do |format|
+      format.html { respond_with(@projects) }
+      format.json { render json: @projects, each_serializer: ProjectSerializer }
+    end
   end
 
   # GET /projects/1

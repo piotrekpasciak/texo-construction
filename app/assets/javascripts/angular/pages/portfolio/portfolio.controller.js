@@ -7,11 +7,12 @@
         .controller('PortfolioController', PortfolioController);
 
     /** @ngInject */
-    function PortfolioController()
+    function PortfolioController(projectService)
     {
         var vm = this;
 
         // View model variables
+        vm.projects = [];
 
         // View model functions
 
@@ -19,7 +20,12 @@
 
         function activate()
         {
-
+            projectService.getProjects().then(function(success) {
+                vm.projects = success.data.projects;
+                console.log(vm.projects);
+            }).catch(function() {
+                console.log("Error");
+            });
         }
     }
 })();

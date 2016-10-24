@@ -9,10 +9,10 @@
 
   <section class="portfolio-body">
 
-    <div ng-repeat="project in projects">
+    <div ng-repeat="project in portfolio.projects">
       <div class="clearfix">
           <div class="home-body-tile">
-            <h2 class="home-body-header-text"><img src="<%= image_path("home/tile_thing.png")%>" alt="Tile thing"/> {{ projects[$index].title }}</h2>
+            <h2 class="home-body-header-text"><img src="<%= image_path("home/tile_thing.png")%>" alt="Tile thing"/> {{ project.title }}</h2>
             <div ng-click="showBigImage($index)" ng-mouseenter="hover = false" ng-mouseleave="hover = true" class="project-photo-image-overlay">
                 <a ng-class="{displayhide: hover}" href="/portfolio/{{ current_page*2 - 1 + $index}}/more-photos" class="project-overlay-link"><span ng-class="{displayhide: hover}" class="project-overlay-text">SHOW MORE IMAGES</span></a>
             </div>
@@ -29,15 +29,15 @@
                   <p class="portfolio-details-big-text">PROJECT:</p>
                 </div>
                 <div class="inline-block-class">
-                  <p> {{ projects[$index].location }}</p>
-                  <p> {{ projects[$index].owner }}</p>
-                  <p> {{ projects[$index].company }}</p>
+                  <p> {{ project.location }}</p>
+                  <p> {{ project.owner }}</p>
+                  <p> {{ project.company }}</p>
                 </div>
               </div>
             </div>
             <div class="col-md-8">
               <h2 class="home-body-header-text"><img src="<%= image_path("home/white_tile_thing.png")%>" alt="Tile thing"/>PROJECT DESCRIPTION</h2>
-              <p class="home-body-header-small-text"> {{ projects[$index].content }} </p>
+              <p class="home-body-header-small-text"> {{ project.content }} </p>
             </div>
           </div>
             <div class="clearfix"></div>

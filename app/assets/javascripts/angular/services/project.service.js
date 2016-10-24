@@ -6,27 +6,23 @@
         .service('projectService', projectService);
 
     /** @ngInject */
-    function projectService(CONSTANTS) {
+    function projectService(CONSTANTS, $http, $q) {
 
-        // Endpoints
-        // var userInfoUrl = CONSTANTS.BASE_URL + '/api/user/me';
+        //Endpoints
+        const projectsIndexUrl = CONSTANTS.BASE_URL + '/admin/projects.json';
         // var registerUrl = CONSTANTS.BASE_URL + '/api/user/register';
 
         // Public
         var service = {
-            // getCurrentUser: getCurrentUser,
-            // isAuthenticated: isAuthenticated,
-            // login: login,
-            // logout: logout,
-            // register: register,
-            // isUserAllowed: isUserAllowed,
-            // refreshToken: refreshToken
+            getProjects: getProjects
         };
 
         return service;
 
         //////////////
 
-
+        function getProjects() {
+            return $http.get(projectsIndexUrl);
+        }
     }
 })();
