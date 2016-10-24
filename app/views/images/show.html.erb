@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Project:</strong>
-  <%= @image.project %>
+  <strong>Image:</strong>
+  <%= image_tag(@image.photo.url(:medium)) %>
 </p>
 
 <p>
@@ -10,5 +10,5 @@
   <%= @image.main %>
 </p>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<%= link_to 'Edit', edit_project_image_path(@project, @image) %> |
+<%= link_to 'Back', project_images_path(@project, @image) %>

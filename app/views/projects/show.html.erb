@@ -1,29 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div id="page-wrapper">
+  <h1 class="page-header">Managing of project</h1>
 
-<p>
-  <strong>Content:</strong>
-  <%= @project.content %>
-</p>
+  <%= link_to 'Powrót', projects_path, :class => "btn btn-outline btn-success" %>
+  <%= link_to 'Dodaj zdjęcie', new_project_image_path(@project), :class => "btn btn-outline btn-primary" %>
+  <%= link_to 'Edycja', edit_project_path(@project), :class => "btn btn-outline btn-warning" %>
 
-<p>
-  <strong>Location:</strong>
-  <%= @project.location %>
-</p>
+  <h2 class="page-header admin-header-margin-bottom">Project details:</h2>
+  <p>
+    <strong><span class="admin-details-blue-font">Title:</span></strong>
+    <%= @project.title %>
+  </p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @project.owner %>
-</p>
+  <p>
+    <strong><span class="admin-details-blue-font">Content:</span></strong>
+    <%= @project.content %>
+  </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @project.company %>
-</p>
+  <p>
+    <strong><span class="admin-details-blue-font">Location:</span></strong>
+    <%= @project.location %>
+  </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  <p>
+    <strong><span class="admin-details-blue-font">Owner:</span></strong>
+    <%= @project.owner %>
+  </p>
+
+  <p class="admin-margin-25">
+    <strong><span class="admin-details-blue-font">Company:</span></strong>
+    <%= @project.company %>
+  </p>
+
+  <div class="panel panel-default admin-project-details-images">
+    <div class="panel-heading">Photos of this project:</div>
+    <div class="panel-body col-lg-6 col-md-8 col-sm-10">
+
+      <% if @project.images.any? %>
+          <table class="table table-bordered">
+            <tbody>
+            <% @project.images.each do |image| %>
+                <tr>
+                  <td class="admin-table-center"><%= link_to image_tag(image.photo(:thumb)), project_image_path(@project, image) %></td>
+                  <% if(image.main)%>
+                      <td class="admin-table-center"><div class="label label-success">Yes</div></td>
+                  <% else %>
+                      <td class="admin-table-center"><div class="label label-danger">No</div></td>
+                  <% end %>
+                  <td class="admin-table-center"><%= link_to 'Pokaż zdjęcie', project_image_path(@project, image), :class => "btn btn-outline btn-success" %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+      <% else %>
+          <p>Nie ma zdjęć</p>
+      <% end %>
+    </div>
+  </div>
+</div>

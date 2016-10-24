@@ -6,14 +6,14 @@ default: &default
 development:
   <<: *default
   database: texo-construction_development
-  username: piotrek
-  password: admin123
+  username: admin
+  password:
 
 test:
   <<: *default
   database: texo-construction_test
-  username: piotrek
-  password: admin123
+  username: admin
+  password:
 
 production:
   <<: *default

@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :set_project, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   layout 'admin'
@@ -6,7 +7,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = @project.images
   end
 
   # GET /images/1
@@ -26,11 +27,11 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @image = Image.new(image_params)
+    @image = Image.new(image_params.merge(project_id: params[:project_id]))
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { redirect_to project_images_path(@project), notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class ImagesController < ApplicationController
   def update
     respond_to do |format|
       if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+        format.html { redirect_to project_images_path(@project), notice: 'Image was successfully updated.' }
         format.json { render :show, status: :ok, location: @image }
       else
         format.html { render :edit }
@@ -58,19 +59,21 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to project_images_path(@project, @image), notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
+
     def image_params
-      params.require(:image).permit(:project_id, :main)
+      params.require(:image).permit(:main, :photo)
     end
 end
