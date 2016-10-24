@@ -9,7 +9,6 @@
 
 # Ignore all logfiles and tempfiles.
 .idea/
-public/system/*
 /log/*
 !/log/.keep
 /tmp
@@ -17,3 +16,4 @@ public/system/*
 npm-debug.log
 .env
 README.md
+public/system/*
