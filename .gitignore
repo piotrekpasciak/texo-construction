@@ -17,3 +17,5 @@ npm-debug.log
 .env
 README.md
 public/system/*
+config/database.yml
+config/secrets.yml
