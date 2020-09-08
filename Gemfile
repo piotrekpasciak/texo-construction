@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Gems added for project
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 gem 'bower-rails', '~> 0.9.2'
 gem 'pry-rails', '~> 0.3.4'
 gem 'paperclip', '~> 5.0'
