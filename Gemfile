@@ -37,7 +37,7 @@ group :development do
   gem 'bullet', '~> 4.14.7'
   gem 'quiet_assets', '~> 1.1.0'
   gem 'better_errors', '~> 2.1.1'
-  gem 'rubocop', '~> 0.32.1'
+  gem 'rubocop', '~> 0.48.1'
   gem 'magic_encoding', '~> 0.0.2'
   gem 'web-console', '~> 2.0'
 end
